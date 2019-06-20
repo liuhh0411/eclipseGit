@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="gbk"></constant>
+	
+    <package name="struts2" extends="struts-default">
+    	
+    	<global-results>
+    		<result name="add_success" type="redirect">/common/pub_add_success.jsp</result>
+    		<result name="del_success" type="redirect">/common/pub_del_success.jsp</result>
+    		<result name="modify_success" type="redirect">/common/pub_modify_success.jsp</result>
+    		<result name="Exception">/common/exception.jsp</result>
+    		<result name="login" type="redirect">/index.jsp</result>
+    	</global-results>
+    	
+    	<global-exception-mappings>
+    		<exception-mapping exception="java.lang.RuntimeException" result="Exception"/>
+    	</global-exception-mappings>
+    	
+		<action name="org" class="orgAction" >
+			<result name="success" type="dispatcher">/org/index.jsp</result>
+			<result name="select">/org/select.jsp</result>
+		</action>
+		
+		<action name="add_input" class="orgAction" method="add">
+			<result name="success" type="dispatcher">/org/add_input.jsp</result>
+		</action>
+		
+		<action name="add" class="addAction">
+			<result name="success" type="dispatcher">/org/index.jsp</result>
+		</action>
+		
+		<action name="del" class="delAction"></action>
+		
+		<action name="person" class="personAction">
+			<result name="success">/person/index.jsp</result>
+		</action>
+		
+		<action name="toAdd" class="personAction" method="toAdd">
+			<result name="success">/person/add_input.jsp</result>
+		</action>
+		
+		<action name="addPerson" class="personAction" method="addPerson">
+		</action>
+		
+		<action name="delPerson" class="personAction" method="delPerson">
+		</action>
+		
+		<action name="module" class="moduleAction">
+			<result name="success">/module/index.jsp</result>
+		</action>
+		
+		<action name="add_module" class="moduleAction" method="add_module">
+			<result name="add_success">/common/pub_add_success.jsp</result>
+		</action>
+		
+		<action name="del_module" class="moduleAction" method="del_module"></action>
+		
+		<action name="role" class="roleAction">
+			<result name="success">/role/index.jsp</result>
+		</action>
+		
+		<action name="add_role" class="roleAction" method="add_role"></action>
+		
+		<action name="del_role" class="roleAction" method="del_role"></action>
+		
+		<action name="user" class="userAction">
+			<result name="success">/user/index.jsp</result>
+		</action>
+		
+		<action name="add_user" class="userAction" method="add_user"></action>
+		
+		<action name="del_user" class="userAction" method="del_user"></action>
+		
+		<action name="modify_user" class="userAction" method="modify_user"></action>
+		
+		<action name="userRole" class="userAction" method="userRole">
+			<result name="success">/user/user_role_list.jsp</result>
+		</action>
+		
+		<action name="toUserRole" class="userAction" method="toUserRole">
+			<result name="success">/user/user_role_input.jsp</result>
+		</action>
+		
+		<action name="add_userRole" class="userAction" method="add_userRole"></action>
+		
+		<action name="del_userRole" class="userAction" method="del_userRole"></action>
+		
+		<action name="acl" class="aclAction">
+			<result name="success">/acl/index.jsp</result>
+		</action>
+		
+		<action name="login" class="loginAction">
+			<result name="success">/back_index.jsp</result>
+		</action>
+		
+		<action name="outlook" class="outlookAction">
+			<result name="success">/outlook.jsp</result>
+		</action>
+		
+		<action name="main" class="mainAction">
+			<result name="success">/main.jsp</result>
+		</action>
+		
+    </package>
+
+</struts>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_person" name="com.oa.model.Person">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="name" access="field"/>
+    <property name="sex" access="field"/>
+    <property name="address" access="field"/>
+    <property name="duty" access="field"/>
+    <property name="phone" access="field"/>
+    <property name="description" access="field"/>
+    <many-to-one access="field" name="org"/>
+    <one-to-one name="user" access="field" property-ref="person" />
+  </class>
+</hibernate-mapping>
