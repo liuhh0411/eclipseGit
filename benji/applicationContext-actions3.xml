@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Application context definition for JPetStore's business layer.
+  - Contains bean references to the transaction manager and to the DAOs in
+  - dataAccessContext-local/jta.xml (see web.xml's "contextConfigLocation").
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+		
+	<bean id="orgAction" class="com.struts2.action.OrgAction" scope="prototype">
+		<property name="orgManager" ref="orgManager"></property>
+	</bean>
+	
+	<bean id="addAction" class="com.struts2.action.AddAction" scope="prototype">
+		<property name="orgManager" ref="orgManager"></property>
+	</bean>
+	
+	<bean id="delAction" class="com.struts2.action.DelAction" scope="prototype">
+		<property name="orgManager" ref="orgManager"></property>
+	</bean>
+	
+	<bean id="personAction" class="com.struts2.action.PersonAction" scope="prototype">
+		<property name="personManager" ref="personManager"></property>
+	</bean>
+	
+	<bean id="moduleAction" class="com.struts2.action.ModuleAction" scope="prototype">
+		<property name="moduleManager" ref="moduleManager"></property>
+	</bean>
+	
+	<bean id="roleAction" class="com.struts2.action.RoleAction" scope="prototype">
+		<property name="roleManager" ref="roleManager"></property>
+	</bean>
+	
+	<bean id="userAction" class="com.struts2.action.UserAction" scope="prototype">
+		<property name="roleManager" ref="roleManager"></property>
+		<property name="personManager" ref="personManager"></property>
+		<property name="userManager" ref="userManager"></property>
+	</bean>
+	
+	<bean id="aclAction" class="com.struts2.action.AclAction" scope="prototype">
+		<property name="roleManager" ref="roleManager"></property>
+		<property name="userManager" ref="userManager"></property>
+		<property name="moduleManager" ref="moduleManager"></property>
+	</bean>
+	
+	<bean id="loginAction" class="com.struts2.action.LoginAction" scope="prototype">
+		<property name="userManager" ref="userManager"></property>
+	</bean>
+	
+	<bean id="outlookAction" class="com.struts2.action.OutlookAction" scope="prototype">
+		<property name="aclManager" ref="aclManager"></property>
+	</bean>
+	
+	<bean id="mainAction" class="com.struts2.action.MainAction" scope="prototype">
+	</bean>
+	
+</beans>
